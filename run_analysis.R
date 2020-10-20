@@ -69,7 +69,11 @@ write.table(Second_dataset, file= "tidy_dataset.txt", row.names = FALSE)
 
 View(Second_dataset)
 
+<<<<<<< HEAD
 
+=======
+write.table(Second_dataset, file= "tidy_dataset.txt")
+>>>>>>> e83fc0d3fa12da572151df8e3999b843c126f55b
 
 
 
