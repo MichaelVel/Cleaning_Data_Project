@@ -37,7 +37,11 @@ test <- test %>%  mutate(subjects = test_subjects, activity= test_activity,
                          group = "test")
 
  ## 1.3 ## Merging and order the dataset by the subjects
+
 rm(test_activity, test_subjects, train_activity, train_subjects, url)
+
+rm(test_activity, test_subjects, train_activity, train_subjects)
+
 Full_dataset<- full_join(train, test)
 Full_dataset <-arrange(Full_dataset, subjects)
 
@@ -60,9 +64,13 @@ Full_dataset <- rename_at(Full_dataset,  vars(1:69), ~names_dataset)
 rm(test, train, names, names_dataset)
 Full_dataset <- Full_dataset %>% group_by(subjects, activity, group)
 Second_dataset <- Full_dataset %>% summarise_all(mean)
+
 write.table(Second_dataset, file= "tidy_dataset.txt", row.names = FALSE)
 
 View(Second_dataset)
+
+
+
 
 
 
