@@ -34,7 +34,7 @@ the script is divided into four parts:
   
 *- 3. Subsetting by the mean and the standard deviation variables:*
 
-  Only the variables that have the strings "mean()" and "std()" in the  
+  Only the variables that have the strings "mean()" and "std()" in the 
   merged dataset are selected to generate the final dataset. 
   
 *- 4. Creating the final, tidy data set:*
@@ -49,4 +49,8 @@ the script is divided into four parts:
   The final dataset can be loaded to r with: 
   
   read.table("tidy_dataset.txt", header = TRUE)  
+  
+# Bibliography 
+  The dataset used to perform the analysis come from:
+  - Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a       Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain.   Dec 2012
   
