@@ -1,4 +1,4 @@
-## Downloading files 
+## 1 ## Downloading files and loading the Tidyverse package
 
 url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(url, destfile = "UCI_HAR_Dataset.zip")
@@ -9,9 +9,9 @@ unzip("UCI_HAR_Dataset.zip")
 
 library(tidyverse)
 
-## 1 ## Merging train and test datasets  
+## 2 ## Merging train and test datasets  
 
- ## 1.1 ## Adding the subject and activity variables to the train dataset  
+ ## 2.1 ## Adding the subject and activity variables to the train dataset  
 names <- as.character(read.table("./UCI HAR Dataset/features.txt")[,2])
 
 train <- read_table("./UCI HAR Dataset/train/X_train.txt", col_names = names)
@@ -24,7 +24,7 @@ train_activity <- train_activity %>%
 train <- train %>%  mutate(subjects = train_subjects, activity = train_activity, 
                            group = "train" )
 
- ## 1.2 ## Adding the subject and activity variables to the test dataset  
+ ## 2.2 ## Adding the subject and activity variables to the test dataset  
 
 test <-  read_table("./UCI HAR Dataset/test/X_test.txt", col_names = names)
 test_subjects <- scan("./UCI HAR Dataset/test/subject_test.txt")
@@ -36,7 +36,7 @@ test_activity <- test_activity %>%
 test <- test %>%  mutate(subjects = test_subjects, activity= test_activity,
                          group = "test")
 
- ## 1.3 ## Merging and order the dataset by the subjects
+ ## 2.3 ## Merging and order the dataset by the subjects
 
 rm(test_activity, test_subjects, train_activity, train_subjects, url)
 
@@ -45,7 +45,7 @@ rm(test_activity, test_subjects, train_activity, train_subjects)
 Full_dataset<- full_join(train, test)
 Full_dataset <-arrange(Full_dataset, subjects)
 
-## 2 ## Subsetting by the mean and the standard deviation variables 
+## 3 ## Subsetting by the mean and the standard deviation variables 
      ## for each measurement 
 
 Full_dataset <- Full_dataset %>% select(subjects, activity, group, 
@@ -54,7 +54,7 @@ names_dataset <- names(Full_dataset)
 names_dataset <- names_dataset %>% str_to_lower()
 Full_dataset <- rename_at(Full_dataset,  vars(1:69), ~names_dataset)
 
-## 3 ## Creating the second, tidy data set
+## 4 ## Creating the second, tidy data set
 
 rm(test, train, names, names_dataset)
 Full_dataset <- Full_dataset %>% group_by(subjects, activity, group)
