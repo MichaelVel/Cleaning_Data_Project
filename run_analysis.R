@@ -50,16 +50,11 @@ Full_dataset <-arrange(Full_dataset, subjects)
 
 Full_dataset <- Full_dataset %>% select(subjects, activity, group, 
                                 str_which(names, pattern = "mean\\(|std\\(")) 
-
-## 3 ## Label the data set with descriptive names 
-
 names_dataset <- names(Full_dataset)
-names_dataset <- names_dataset %>% str_to_lower() %>% str_remove("\\(\\)") %>%
-  str_replace_all(c("acc" = "_acceleration", "gyro" = "_angular_velocity",
-                    "-" = "_", "mag"= "_magnitude", "jerk" = "_jerk" ))
+names_dataset <- names_dataset %>% str_to_lower()
 Full_dataset <- rename_at(Full_dataset,  vars(1:69), ~names_dataset)
 
-## 4 ## Creating the second, tidy data set
+## 3 ## Creating the second, tidy data set
 
 rm(test, train, names, names_dataset)
 Full_dataset <- Full_dataset %>% group_by(subjects, activity, group)
