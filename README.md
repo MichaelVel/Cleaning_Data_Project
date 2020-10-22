@@ -12,7 +12,7 @@ The repository includes the following files:
 
 the script is divided into four parts: 
 
-*- 1. Downloading files and loading the Tidyverse package:*
+**- 1. Downloading files and loading the Tidyverse package:**
   
   The files to perform the analysis are downloading from the url provides 
   by the course assignment, but if you already have the 'UCI HAR Dataset' 
@@ -21,7 +21,7 @@ the script is divided into four parts:
   Also, the script needs the tidyverse package to work, if you don't have it
   please make the installation. 
   
-*- 2. Merging the train and test datasets:*
+**- 2. Merging the train and test datasets:**
 
   In this part are load the train and test tables of the dataset, and are 
   labeled with the names provides by the autors in the 'features.txt' file.
@@ -32,12 +32,12 @@ the script is divided into four parts:
   
   The tables are joined with the full_join function. 
   
-*- 3. Subsetting by the mean and the standard deviation variables:*
+**- 3. Subsetting by the mean and the standard deviation variables:**
 
   Only the variables that have the strings "mean()" and "std()" in the 
   merged dataset are selected to generate the final dataset. 
   
-*- 4. Creating the final, tidy data set:*
+**- 4. Creating the final, tidy data set:**
   
   Finally, the dataset is grouped by the subjects, activity and group columns
   and then is passed to the summarise_all function to obtain the tidy dataset.
