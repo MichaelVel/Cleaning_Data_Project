@@ -50,7 +50,7 @@ the script is divided into four parts:
   
   read.table("tidy_dataset.txt", header = TRUE)  
   
-# Bibliography 
+## Bibliography 
   The dataset used to perform the analysis come from:
   - Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a       Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain.   Dec 2012
   
